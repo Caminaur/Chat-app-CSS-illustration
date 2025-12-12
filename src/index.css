@@ -15,11 +15,67 @@
   --pink-400: hsl(289, 100%, 72%);
 
   --body-font-size: 16px;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-subtle: pulse-subtle 1s ease-out infinite;
+  --animate-fade-in: fade-in 1s ease-out forwards;
+  --animate-fade-in-phone: fade-in-phone 1s ease-out forwards;
+  --animate-fade-in-right: fade-in-right 1s ease-out forwards;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fade-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fade-in-phone {
+  from {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @layer base {
   html {
     font-size: var(--body-font-size);
+    scroll-behavior: smooth;
   }
 
   body {
@@ -36,10 +92,12 @@
 
 @layer utilities {
   .text-chat-left {
+    @apply bg-purple-300/40 p-2 rounded-t-2xl rounded-br-2xl rounded-bl-md max-w-3/4;
     color: var(--purple-600);
   }
 
   .text-chat-right {
+    @apply bg-white p-2 rounded-t-2xl rounded-br-md rounded-bl-2xl max-w-3/4 ml-auto;
     color: var(--gray-500);
   }
 
@@ -80,5 +138,25 @@
       var(--pink-500),
       var(--purple-500)
     );
+  }
+
+  .shape-base {
+    @apply min-w-80 h-180 w-2/3 md:w-120 lg:h-7/9 absolute z-5 lg:w-4/9;
+  }
+
+  .animate-pulse-subtle {
+    animation: var(--animate-pulse-subtle);
+  }
+  .animate-fade-in {
+    animation: var(--animate-fade-in);
+  }
+  .animate-fade-in-phone {
+    animation: var(--animate-fade-in-phone);
+  }
+  .animate-fade-in-right {
+    animation: var(--animate-fade-in-right);
+  }
+  .animate-float {
+    animation: var(--animate-float);
   }
 }
