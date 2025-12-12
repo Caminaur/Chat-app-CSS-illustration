@@ -1,6 +1,7 @@
 import Phone from "../Components/Phone";
 import TextBox from "../Components/TextBox";
 import { BGDecorations } from "../Components/Bg-decorations";
+import Attribution from "../Components/Attribution";
 function Home() {
   return (
     <div className="w-full h-full bg-app overflow-hidden relative">
@@ -11,6 +12,7 @@ function Home() {
         <Phone />
         <TextBox />
       </div>
+      <Attribution />
     </div>
   );
 }
